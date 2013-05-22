@@ -918,7 +918,7 @@ $allow_multiple_emails = false, $friend_guid = 0, $invitecode = '') {
 	if (empty($username)
 	|| empty($password)
 	|| empty($name)
-	|| empty($email)) {
+	//|| empty($email)) {
 		return false;
 	}
 
@@ -926,9 +926,9 @@ $allow_multiple_emails = false, $friend_guid = 0, $invitecode = '') {
 	$access_status = access_get_show_hidden_status();
 	access_show_hidden_entities(true);
 
-	if (!validate_email_address($email)) {
+	/*if (!validate_email_address($email)) {
 		throw new RegistrationException(elgg_echo('registration:emailnotvalid'));
-	}
+	}*/
 
 	if (!validate_password($password)) {
 		throw new RegistrationException(elgg_echo('registration:passwordnotvalid'));
