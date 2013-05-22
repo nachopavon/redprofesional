@@ -1,0 +1,101 @@
+rev 12-Dec_26-13_56
+
+6 June
+Upgraded from FCKeditor 2.4.1 to 2.6.6.  2.6.6 includes the scayt spellchecker, which is an in-editor spellchecker.
+2.6.6 is the final FCKeditor before the change-over to CKeditor.  The upgrade required bringing the ie and gecko 
+javascript files into sync, in particular so that the image and link dialogs open to a larger size.
+This upgrade will now be designated fckgLite 07.
+
+7 June 
+Added configuration options for turning SCAYT on and off, setting it as auto,  and for selecting SCAYT language . 
+Hide language selection button for SpellerPages spell checker when SCAYT is in effect.
+
+9 June
+Converted Arabic language file for fckg editing window from BOM to non-BOM (Corrupted image display).
+Enabled overflow and scrolling in SCAYT dialog.
+
+10 June
+Increased sizes of link and image dialog windows in gecko. Adjusted font sizes in link.html
+
+11 June 
+Corrected url in Anteater safe encodig message (meta.php)
+
+5 July 2012
+Fix to FCKEditor fck_link.js for IE9, where FCKeditor's Selection.SelectNode() fails to insert link at 
+cursor position if text not previously selected. This only comes into play if fckgLite is prevent from
+auto-switching IE to IE8 compatibility while in editing mode.
+
+7 July 2012
+Fix to FCKeditor fck_image.js for IE9, where FCK.InsertElement failed to insert image at
+cursor. (See fck_link 5 July 2012).
+
+9 July
+Removed some unnecessary files from distribution and comproessed  old Changs files to zip.
+
+Confined IE image and link fixes to IE9 since FCKeditor will not load in IE10.  Users of IE10
+where templates force Standards Mode will have to manually switch to compatibilty mode.
+In other cases, fckgLite auto-switches to IE8 compatibility,
+
+23 August
+Fixed for smileys in lists where CR was lost if smiley was in li
+
+24 August
+fckeditor/dwsmileys.php: set alternate path for ajax access to smiley.conf in debian and ubuntu
+
+25 August
+Set IE compatiblity mode to IE=EmulateIE8 in file browser when browserMode > 8 (used writeln in file: fckxml.js).
+This was needed by IE 10.
+
+28 August
+Implemented option to rewrite FCKeditor smiley URLs when pages are moved to new server. Regex at top of
+edit.php:_preprocess.  The URLs are reset on a page by page basis when loaded and saved.  The option
+should be turned off except when needed.
+
+20 September
+Minor edit (removed stray quotation mark attached to attribute name in edit.php form tag)
+
+9 October 2012
+Fixed bug where table markup inside code blocks dropped empty cells (edit.php::_preprocess)
+
+20 Nov
+Added session_id check to config.php:  in some system setting session which has already been set throws
+an error.
+
+Added $mssg="" to FileUpload() in commands.php for SendUploadResults(), without which some systems freeze.
+
+Both of the above occurred on Windows with PHP 5.3
+
+25 Nov
+Removed stray character from top of fckconfig.js. Updated handling of mime types in config.php.
+
+27 Nov
+Fixes in fckeditor plugin font.html and edit.php for current less permissive browsers.
+
+27 Nov Update
+Minor edits to edit.php and fonts.html to accommodate stricter evaluation of undefines in IE10
+
+29 Nov
+Fixed regex which removed precent-escaped backslashes in plugin syntax so that backslashes are
+removed only around non-alpha characters, preserving sequences such as \r\n.
+
+30 Nov
+Added two  short-cut keys for numbered list: ctrl-+ and ctrl+{.  Both do the same thing.
+
+8 Dec
+In edit.php: insert this.is_smiley = false after alt (text form of smiley) is added to results;
+prevents corruption of text formats and insertion of javascript 'undefined' when alt is not found
+on next time through start()
+
+21 Dec 2012
+Updated css for new dokuwiki template.
+
+22 Dec
+Updated fck_editorarea.css.new_template for code blocks
+
+23 December
+Replaced default fck_editorarea.css with original that was accidentally exchanged for the new.
+
+Created an IE CSS hack for geshi snippets 
+
+26 December
+Fix for webkit nested lists
